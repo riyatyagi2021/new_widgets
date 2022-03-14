@@ -1,21 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:trying_widgetss/hardwares/scanner.dart';
 import 'package:trying_widgetss/hive/model/transaction.dart';
 import 'package:trying_widgetss/hive/transaction_view.dart';
-
 import 'hardwares/bluetooth.dart';
 import 'hardwares/razorpay.dart';
 import 'new_trials/cached_network image.dart';
+import 'new_trials/download_read_files.dart';
+import 'new_trials/zoom_image.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(TransactionAdapter()); //here pass the generated adapter
   await Hive.openBox<Transaction>('transactions');
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: EdgeInsets.symmetric(vertical: 50),
+        padding:  EdgeInsets.symmetric(vertical: 50),
         color: Colors.black12,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -108,12 +109,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 }),
             SizedBox(height: 20,),
             CupertinoButton(
-                child: Text('Network cache images'),
+                child: Text('Download/Open any file Type'),
                 color: Colors.deepPurpleAccent,
                 onPressed: (){
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder:(context)=>CacheNtwrkImages()));
+                      MaterialPageRoute(builder:(context)=>DownloadReadFiles()));
+                }),
+            SizedBox(height: 20,),
+            CupertinoButton(
+                child: Text('Zoom Image '),
+                color: Colors.deepPurpleAccent,
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder:(context)=>ZoomImage()));
+
                 }),
 
 
