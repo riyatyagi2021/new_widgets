@@ -71,7 +71,7 @@ class _BarQRScannerState extends State<BarQRScanner> {
                     onPressed: () => startBarcodeScanStream(),
                     child: const Text('Barcode scan stream')),
                 Text('Scan result : $_scanBarcode\n',
-                    style: const TextStyle(fontSize: 20))
+                    style: const TextStyle(fontSize: 20)),
               ])
         ),
       ),

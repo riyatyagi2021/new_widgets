@@ -8,6 +8,8 @@ import 'hardwares/bluetooth.dart';
 import 'hardwares/razorpay.dart';
 import 'new_trials/cached_network image.dart';
 import 'new_trials/download_read_files.dart';
+import 'new_trials/customCircularIndi.dart';
+import 'new_trials/intercative_viewer.dart';
 import 'new_trials/zoom_image.dart';
 
 void main() async{
@@ -64,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
 
             CupertinoButton(
-                child: Text('BlueTooth'),
+                child: Text('Haptic Feedback'),
                 color: Colors.deepPurpleAccent,
                 onPressed: (){
                   Navigator.push(
@@ -125,6 +127,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       context,
                       MaterialPageRoute(builder:(context)=>ZoomImage()));
 
+
+                }),
+            CupertinoButton(
+                child: Text('CustomCircularIndicator '),
+                color: Colors.deepPurpleAccent,
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder:(context)=>CustomCircularIndicator()));
+                }),
+            CupertinoButton(
+                child: Text('IntercativeViewer '),
+                color: Colors.deepPurpleAccent,
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder:(context)=>IntercativeViewer()));
                 }),
 
 
