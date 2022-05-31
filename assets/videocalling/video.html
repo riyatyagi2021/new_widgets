@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+</head>
+<body>
+<script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
+<script>
+  function createFrameAndJoinRoom() {
+    window.callFrame = window.DailyIframe.createFrame({
+          showLeaveButton: true,
+          iframeStyle: {
+            position: 'fixed',
+            height: '100%',
+            width: '100%',
+            border: 'none',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+          },
+        });
+    callFrame.join({ url: "https://medpiper.daily.co/hcpwire-dev" });
+  }
+  createFrameAndJoinRoom()
+</script>
+
+
+</body>
+</html>
+
+
+

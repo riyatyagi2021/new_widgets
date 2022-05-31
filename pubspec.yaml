@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   razorpay_flutter: ^1.2.9
   fluttertoast: ^8.0.7
-  flutter_barcode_scanner: ^2.0.0
+  #flutter_barcode_scanner: ^2.0.0
   hive: ^2.0.4
   hive_flutter: ^1.1.0
   intl: ^0.17.0         #for dates
@@ -46,6 +46,15 @@ dependencies:
   path_provider: ^2.0.9
   open_file: ^3.2.1
   file_picker: ^4.1.4
+  firebase_auth: ^2.0.0
+  google_sign_in: ^5.0.0
+  cloud_firestore: ^1.0.7
+  firebase_storage: ^8.0.5  #for storage
+  firebase_core: ^1.0.3     #for storage and initialize fb
+  provider: ^5.0.0
+  webview_flutter: ^3.0.4
+  flutter_inappwebview:
+  permission_handler:
   #google_fonts: ^2.1.1
 
 
@@ -78,6 +87,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - assets/images/
+     - assets/videocalling/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,12 +1,23 @@
+
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 import 'package:trying_widgetss/hardwares/scanner.dart';
 import 'package:trying_widgetss/hive/model/transaction.dart';
 import 'package:trying_widgetss/hive/transaction_view.dart';
+import 'package:trying_widgetss/video/video_call.dart';
+import 'firebase/google_sign_in/googlebtn.dart';
+import 'firebase/google_sign_in/googlesignin_provider.dart';
 import 'hardwares/bluetooth.dart';
 import 'hardwares/razorpay.dart';
+import 'new_trials/chips/chip__testing.dart';
+import 'new_trials/chips/chips.dart';
 import 'new_trials/dropdown_country_api/dropdown.dart';
 import 'new_trials/cached_network image.dart';
 import 'new_trials/download_read_files.dart';
@@ -14,9 +25,12 @@ import 'new_trials/customCircularIndi.dart';
 import 'new_trials/intercative_viewer.dart';
 import 'new_trials/multiples.dart';
 import 'new_trials/zoom_image.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 
 void main() async{
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.red,
     systemNavigationBarColor: Colors.green,
@@ -27,6 +41,9 @@ void main() async{
   await Hive.initFlutter();
   Hive.registerAdapter(TransactionAdapter()); //here pass the generated adapter
   await Hive.openBox<Transaction>('transactions');
+  await Permission.camera.request();
+  await Permission.microphone.request();
+
 
   runApp( MyApp());
 }
@@ -61,17 +78,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('New Widgetss'),
-      ),
-      body: Container(
+  Widget build(BuildContext context){
+    return MaterialApp(
+      home: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         padding:  EdgeInsets.symmetric(vertical: 50),
-        color: Colors.black12,
+        color: Colors.yellow,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -102,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: (){
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder:(context)=>BarQRScanner()));
+                        MaterialPageRoute(builder:(context)=>TransactionPage()));//BarQRScanner
                   }),
               SizedBox(height: 20,),
               CupertinoButton(
@@ -181,9 +194,45 @@ class _MyHomePageState extends State<MyHomePage> {
                         MaterialPageRoute(builder:(context)=>MultipleWidgets()));
                   }),
               SizedBox(height: 20,),
+              CupertinoButton(
+                  child: Text('Google SignIn'),
+                  color: Colors.deepPurpleAccent,
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context)=>Googlebtn()));
 
+                  }),
+              SizedBox(height: 20,),
+              CupertinoButton(
+                  child: Text('Chips'),
+                  color: Colors.deepPurpleAccent,
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context)=>ChipTrial()));
 
+                  }),
+              SizedBox(height: 20,),
+              CupertinoButton(
+                  child: Text('Search'),
+                  color: Colors.deepPurpleAccent,
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context)=>ChipTrial()));
 
+                  }),
+              SizedBox(height: 20,),
+              CupertinoButton(
+                  child: Text('Video Call'),
+                  color: Colors.deepPurpleAccent,
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context)=>VideoCall()));
+
+                  }),
 
             ],
           ),
@@ -191,4 +240,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }

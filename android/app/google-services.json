@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "631843672122",
+    "project_id": "exploreeachtwapp",
+    "storage_bucket": "exploreeachtwapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631843672122:android:fd9e92e3192ec88364a503",
+        "android_client_info": {
+          "package_name": "com.example.trying_widgetss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631843672122-j681til6patgdbuv89alt82crvi2goei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNee-m-sSGh6wYdk6BuTkW6mZcRePVOsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631843672122-j681til6patgdbuv89alt82crvi2goei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
