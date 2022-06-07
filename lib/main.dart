@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:trying_widgetss/hardwares/scanner.dart';
 import 'package:trying_widgetss/hive/model/transaction.dart';
 import 'package:trying_widgetss/hive/transaction_view.dart';
+import 'package:trying_widgetss/new_trials/provider/todo_model.dart';
 import 'package:trying_widgetss/video/video_call.dart';
 import 'firebase/google_sign_in/googlebtn.dart';
 import 'firebase/google_sign_in/googlesignin_provider.dart';
@@ -22,8 +23,12 @@ import 'new_trials/dropdown_country_api/dropdown.dart';
 import 'new_trials/cached_network image.dart';
 import 'new_trials/download_read_files.dart';
 import 'new_trials/customCircularIndi.dart';
+import 'new_trials/hooks/hooks_intro.dart';
 import 'new_trials/intercative_viewer.dart';
 import 'new_trials/multiples.dart';
+import 'new_trials/provider/provider_pkg.dart';
+import 'new_trials/socket.dart';
+import 'new_trials/tabs_with_indicator.dart';
 import 'new_trials/zoom_image.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -215,12 +220,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   }),
               SizedBox(height: 20,),
               CupertinoButton(
-                  child: Text('Search'),
+                  child: Text('TabsWithIndicator'),
                   color: Colors.deepPurpleAccent,
                   onPressed: (){
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder:(context)=>ChipTrial()));
+                        MaterialPageRoute(builder:(context)=>TabsWithIndicator()));
 
                   }),
               SizedBox(height: 20,),
@@ -232,6 +237,39 @@ class _MyHomePageState extends State<MyHomePage> {
                         context,
                         MaterialPageRoute(builder:(context)=>VideoCall()));
 
+                  }),
+              SizedBox(height: 20,),
+              CupertinoButton(
+                  child: Text('Chat with web sockets'),
+                  color: Colors.deepPurpleAccent,
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context)=>Chatting()));
+
+                  }),
+              SizedBox(height: 20,),
+              CupertinoButton(
+                  child: Text('ProviderPkg'),
+                  color: Colors.deepPurpleAccent,
+                  onPressed: (){
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context)=> ChangeNotifierProvider(
+                          create: (BuildContext context)=>TodoModel(),
+                          child: ProviderPkg(),)
+                        ));
+
+                  }),
+              SizedBox(height: 20,),
+              CupertinoButton(
+                  child: Text('Hoooooooks'),
+                  color: Colors.deepPurpleAccent,
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder:(context)=>HooksIntro()));
                   }),
 
             ],
